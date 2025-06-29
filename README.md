@@ -59,3 +59,91 @@ The Kamal BookStore Inventory Management System enhances operational efficiency 
 
 By integrating technology into the bookstore’s workflow, Mr. Kamal can reduce manual work, improve inventory accuracy, increase customer satisfaction, and ultimately boost his bookstore’s profitability.
 
+Implementation of OOP Concepts (Ch5–Ch9)  
+1. Encapsulation & Data Hiding (Ch5)  
+What We Did:  
+Used private attributes with public getter/setter methods to protect internal class data.  
+
+Example:  
+
+class Name {  
+    private String fName, lName;  
+    public String getFName() { return fName; }  
+    public void setFName(String f) { fName = f; }  
+}  
+
+Why: To protect internal states and ensure controlled access to object properties.  
+
+2. Inheritance (Ch6)  
+What We Did:  
+Created a User superclass for shared attributes. Admin, Customer, and BookSupplier extend this base class.  
+
+Example:  
+
+class Admin extends User {  
+    private Vector<Book> books;  
+    // Uses inherited methods from User  
+}  
+
+Why: To promote reusability and establish parent-child relationships between objects.  
+
+3. Polymorphism (Ch7)  
+What We Did:  
+Used abstract class Menu with overridden methods depending on user type.  
+
+Example:  
+
+abstract class Menu {  
+    abstract int viewMenu();  
+}  
+
+class Admin extends User {  
+    @Override int viewMenu() { /* Admin-specific menu */ }  
+}  
+
+Why: To allow different behaviors depending on object types at runtime.  
+
+4. Composition & Aggregation (Ch8)  
+Composition:  
+
+A User has a Name object (lifespan is tied).  
+
+Example:  
+
+class User {  
+    private Name name;  
+    User(...) { name = new Name(fName, lName); }  
+}  
+
+Aggregation:  
+
+Admin contains a collection of Book objects (independent entities).  
+
+Example:  
+
+class Admin {  
+    private Vector<Book> books; // Books exist outside Admin  
+}  
+
+Why: To model part-whole relationships accurately based on ownership strength.  
+
+5. Exception Handling & File Operations (Ch9)  
+Exception Handling:  
+
+Prevented crashes using try-catch blocks for file and input-related errors.  
+
+Example:  
+
+try {  
+    FileWriter file = new FileWriter("booksDatabase.txt");  
+} catch (IOException e) {  
+    System.out.println("File error!");  
+}  
+
+File Operations:  
+
+Implemented methods like addBooksIntoFile(), readBooksFromFile() for data persistence.  
+
+Why: To ensure error-resilient application behavior and maintain data integrity.
+
+
